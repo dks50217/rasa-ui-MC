@@ -8,9 +8,10 @@ services:
     ports:
     - "5005:5005"
     volumes:
-    - "./rasa-app-data/models:/app/models"
-    - "./rasa-app-data/logs:/app/logs"
-    command: "run --enable-api --debug"
+    - D:\docker\apps\rasa:/app
+    # - "./rasa-app-data/models:/app/models"
+    # - "./rasa-app-data/logs:/app/logs"
+    command: "run --enable-api --debug" #model requeset
 
   rasa_ui:       
     image: paschmann/rasa-ui:latest
@@ -21,6 +22,6 @@ services:
     depends_on:
       - "rasa"
     environment:
-      rasa_endpoint: "http://rasa:5005"
+      rasa_endpoint: "http://localhost:5005"
 
 networks: {rasa-network: {}}
