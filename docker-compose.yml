@@ -22,6 +22,6 @@ services:
     depends_on:
       - "rasa"
     environment:
-      rasa_endpoint: "http://localhost:5005"
+      rasa_endpoint: "http://rasa:5005"
 
 networks: {rasa-network: {}}
